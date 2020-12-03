@@ -20,14 +20,15 @@ public class InstallmentCardTest {
     private final String birthDate = LocalDate.now().plusDays(4).format(formatter);
     private final String firstName = faker.name().firstName();
     private final String lastName = faker.name().lastName();
-    private final static String phone = "5123456789",
-            region = "Астраханская область",
+    private final String phoneNumber = faker.phoneNumber().cellPhone();
+    private final static String //phone = "5123456789",
+            region = "Астраханская область", //TODO Добавить рандомный выбор области
             localityAddress = "г Астрахань";
 
     @BeforeAll
     static void setup() {
         Configuration.startMaximized = true;
-        //Configuration.browser = "opera";
+        Configuration.browser = "firefox";
     }
 
     @Test
@@ -57,7 +58,7 @@ public class InstallmentCardTest {
         }
         @Step("Проверить переход на страницу заказа")
         public void checkOrderPage() {
-            $("html").waitUntil(visible, 1000).shouldHave(text("Халва"));
+            $("html").waitUntil(visible, 3000).shouldHave(text("Халва"));
         }
         @Step("Заказать карту Халва")
         public void orderCard() {
@@ -69,7 +70,7 @@ public class InstallmentCardTest {
         public void inputDataPage() {
             $(byName("fio")).setValue(firstName + " " + lastName);
             $(byName("birthDate")).setValue(birthDate);
-            $(byName("phone")).setValue(phone);
+            $(byName("phone")).setValue(phoneNumber);
             $(byName("region")).click();
             $$(byText(region)).find(visible).click();
             $(byName("localityAddress")).setValue("Астра");
@@ -79,8 +80,8 @@ public class InstallmentCardTest {
         }
         @Step("Проверить завершение процесса заявки на карту Халва")
         public void checkCompletionApplication () {
-            $("html").shouldHave(text("Вы уже подавали заявку на Халву!"));
-            //$("html").shouldHave(exactText("Выберите способ получения Вашей карты Халва"));
+            //$("html").shouldHave(text("Вы уже подавали заявку на Халву!"));
+            $("html").shouldHave(text("Выберите способ получения Вашей карты Халва"));
         }
     }
 }
