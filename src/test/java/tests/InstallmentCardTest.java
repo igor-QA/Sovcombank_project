@@ -21,9 +21,8 @@ public class InstallmentCardTest {
     private final String firstName = faker.name().firstName();
     private final String lastName = faker.name().lastName();
     private final String phoneNumber = faker.phoneNumber().cellPhone();
-    private final static String //phone = "5123456789",
-            region = "Астраханская область", //TODO Добавить рандомный выбор области
-            localityAddress = "г Астрахань";
+    private final static String region = "Астраханская область", //TODO Добавить рандомный выбор области
+                                localityAddress = "г Астрахань";
 
     @BeforeAll
     static void setup() {
