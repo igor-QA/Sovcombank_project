@@ -10,24 +10,27 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.concurrent.ThreadLocalRandom;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class InstallmentCardTest {
     Faker faker = new Faker(new Locale("ru"));
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.1999");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.");
+
+    private final int year = ThreadLocalRandom.current().nextInt(1935, 2000);
     private final String birthDate = LocalDate.now().plusDays(4).format(formatter);
     private final String firstName = faker.name().firstName();
     private final String lastName = faker.name().lastName();
-    private final String phoneNumber = faker.phoneNumber().cellPhone();
+    private final String phoneNumber = "9" + faker.phoneNumber().cellPhone();
     private final static String region = "Астраханская область", //TODO Добавить рандомный выбор области
                                 localityAddress = "г Астрахань";
 
     @BeforeAll
     static void setup() {
         Configuration.startMaximized = true;
-        Configuration.browser = "firefox";
+        //Configuration.browser = "firefox";
     }
 
     @Test
@@ -43,7 +46,6 @@ public class InstallmentCardTest {
         steps.checkCompletionApplication();
 
     }
-
     public class BaseSteps {
         @Step("Открыть главную страницу СовкомБанк")
         public void openMainPage() {
@@ -68,7 +70,7 @@ public class InstallmentCardTest {
         @Step("Ввод данных потенциального клиента")
         public void inputDataPage() {
             $(byName("fio")).setValue(firstName + " " + lastName);
-            $(byName("birthDate")).setValue(birthDate);
+            $(byName("birthDate")).setValue(birthDate + year);
             $(byName("phone")).setValue(phoneNumber);
             $(byName("region")).click();
             $$(byText(region)).find(visible).click();
