@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Owner;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,7 @@ public class InstallmentCardTest extends TestBase {
     @Test
     @DisplayName("Проверить создание заявки на карту ХАЛВА")
     @Story("Пользовател должен создать заявку на карту Халва")
+    @Owner("Igor Pavlov")
     public void createNewApplicationCard() {
         BaseSteps steps = new BaseSteps();
         steps.openMainPage();
