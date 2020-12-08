@@ -36,7 +36,7 @@ public class InstallmentCardTest extends TestBase {
         }
         @Step("Проверить переход на страницу заказа")
         public void checkOrderPage() {
-            $("html").waitUntil(visible, 2000).shouldHave(text("Заказать карту"));
+            $("html").waitUntil(visible, 4000).shouldHave(text("Заказать карту"));
         }
         @Step("Заказать карту Халва")
         public void orderCard() {
@@ -53,7 +53,6 @@ public class InstallmentCardTest extends TestBase {
             $$(byText(region)).find(visible).click();
             $(byName("localityAddress")).setValue("А");
             $x("//*[@id='react-autowhatever-1--item-0']").click();
-            //$$(byText(localityAddress)).find(visible).click();
             $("div.formBtnOuter button").click();
 
         }
