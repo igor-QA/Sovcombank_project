@@ -1,37 +1,14 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import com.github.javafaker.Faker;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.concurrent.ThreadLocalRandom;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class InstallmentCardTest {
-    Faker faker = new Faker(new Locale("ru"));
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.");
-
-    private final int year = ThreadLocalRandom.current().nextInt(1935, 2000);
-    private final String birthDate = LocalDate.now().plusDays(4).format(formatter);
-    private final String firstName = faker.name().firstName();
-    private final String lastName = faker.name().lastName();
-    private final String phoneNumber = "9" + faker.phoneNumber().cellPhone();
-    private final static String region = "Астраханская область", //TODO Добавить рандомный выбор области
-                                localityAddress = "г Астрахань";
-
-    @BeforeAll
-    static void setup() {
-        Configuration.startMaximized = true;
-        //Configuration.browser = "firefox";
-    }
+public class InstallmentCardTest extends TestBase {
 
     @Test
     @DisplayName("Проверить создание заявки на карту ХАЛВА")
@@ -42,11 +19,11 @@ public class InstallmentCardTest {
         steps.goToHalvaCardPage();
         steps.checkOrderPage();
         steps.orderCard();
-        steps.inputDataPage();
+        steps.fillClientForm();
         steps.checkCompletionApplication();
 
     }
-    public class BaseSteps {
+    public class BaseSteps  {
         @Step("Открыть главную страницу СовкомБанк")
         public void openMainPage() {
             open("https://sovcombank.ru");
@@ -59,7 +36,7 @@ public class InstallmentCardTest {
         }
         @Step("Проверить переход на страницу заказа")
         public void checkOrderPage() {
-            $("html").waitUntil(visible, 3000).shouldHave(text("Халва"));
+            $("html").waitUntil(visible, 2000).shouldHave(text("Заказать карту"));
         }
         @Step("Заказать карту Халва")
         public void orderCard() {
@@ -68,14 +45,15 @@ public class InstallmentCardTest {
             $("div.jss74").click();
         }
         @Step("Ввод данных потенциального клиента")
-        public void inputDataPage() {
+        public void fillClientForm() {
             $(byName("fio")).setValue(firstName + " " + lastName);
             $(byName("birthDate")).setValue(birthDate + year);
             $(byName("phone")).setValue(phoneNumber);
             $(byName("region")).click();
             $$(byText(region)).find(visible).click();
-            $(byName("localityAddress")).setValue("Астра");
-            $$(byText(localityAddress)).find(visible).click();
+            $(byName("localityAddress")).setValue("А");
+            $x("//*[@id='react-autowhatever-1--item-0']").click();
+            //$$(byText(localityAddress)).find(visible).click();
             $("div.formBtnOuter button").click();
 
         }
@@ -83,6 +61,7 @@ public class InstallmentCardTest {
         public void checkCompletionApplication () {
             //$("html").shouldHave(text("Вы уже подавали заявку на Халву!"));
             $("html").shouldHave(text("Выберите способ получения Вашей карты Халва"));
+            //TODO Нужно подумать про проверку
         }
     }
 }
