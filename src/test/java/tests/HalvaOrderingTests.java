@@ -4,16 +4,18 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class InstallmentCardTest extends TestBase {
+public class HalvaOrderingTests  extends TestBase {
 
     @Test
     @DisplayName("Проверить создание заявки на карту ХАЛВА")
     @Story("Пользовател должен создать заявку на карту Халва")
+    @Tag("halva_tests")
     @Owner("Igor Pavlov")
     public void createNewApplicationCard() {
         BaseSteps steps = new BaseSteps();
@@ -54,7 +56,7 @@ public class InstallmentCardTest extends TestBase {
             $(byName("region")).click();
             $$(byText(region)).find(visible).click();
             $(byName("localityAddress")).setValue("А");
-            $x("//*[@id='react-autowhatever-1--item-0']").click();
+            $("#react-autowhatever-1--item-0").click();
             $("div.formBtnOuter button").click();
 
         }
