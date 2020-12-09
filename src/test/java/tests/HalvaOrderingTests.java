@@ -46,7 +46,8 @@ public class HalvaOrderingTests  extends TestBase {
         public void orderCard() {
             $(byText("Заказать карту")).click();
             $("div.jss62").shouldHave(text("Получи Халву сейчас!"));
-            $("div.jss74").click();
+            //$("div.jss74").click();
+            $("h1.jss63.headline").scrollIntoView(true);
         }
         @Step("Ввод данных потенциального клиента")
         public void fillClientForm() {
