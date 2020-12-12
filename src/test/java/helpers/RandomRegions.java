@@ -7,8 +7,9 @@ import java.util.stream.Stream;
 
 public enum RandomRegions {
     MOSCOW("Москва и Московская область"),
-    SAINT_PETERSBURG("Санкт-Петербург и Ленинградская область"),
-    NIZHNY_NOVGOROD("Нижегородская область"),
+    //SAINT_PETERSBURG("Санкт-Петербург и Ленинградская область"),
+    ASTRAHAN("Астраханская область"),
+    //NIZHNY_NOVGOROD("Нижегородская область"),
     TATARSTAN("Республика Татарстан");
 
     private final String name;
