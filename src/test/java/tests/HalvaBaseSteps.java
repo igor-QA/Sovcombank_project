@@ -24,7 +24,7 @@ public class HalvaBaseSteps extends TestBase {
 
     @Step("Проверить переход на страницу заказа")
     public void checkOrderPage() {
-        $("html").waitUntil(visible, 5000).shouldHave(text("Заказать карту"));
+        $("html").waitUntil(visible, 3000).shouldHave(text("Заказать карту"));
     }
 
     @Step("Заказать карту Халва")
@@ -44,7 +44,7 @@ public class HalvaBaseSteps extends TestBase {
         $$(byText(region)).find(visible).click();
         $(byName("localityAddress")).setValue("А");
         $("#react-autowhatever-1--item-0").click();
-        $(".formBtn").click();
+        $("button.formBtn").click(); //div.formBtnOuter button
 
     }
 
