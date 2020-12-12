@@ -44,7 +44,7 @@ public class HalvaBaseSteps extends TestBase {
         $$(byText(region)).find(visible).click();
         $(byName("localityAddress")).setValue("А");
         $("#react-autowhatever-1--item-0").click();
-        $(byText("Заказать карту")).click(); //button.formBtn / div.formBtnOuter button
+        $("button.formBtn > span:nth-child(1)").click(); //button.formBtn / div.formBtnOuter button
 
     }
 
