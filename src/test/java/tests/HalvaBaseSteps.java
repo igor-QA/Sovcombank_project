@@ -32,7 +32,7 @@ public class HalvaBaseSteps extends TestBase {
         $(byText("Заказать карту")).click();
         $("h1.jss63.headline").shouldHave(text("Получи Халву сейчас!"));
         $("div.jss74").click();
-        //$("h1.jss63.headline").scrollIntoView(true);
+        //$("h1.jss63.headline").scrollIntoView(true); 2-ой вариант=сразу скролл вниз.
     }
 
     @Step("Ввод данных потенциального клиента")
@@ -52,6 +52,6 @@ public class HalvaBaseSteps extends TestBase {
     public void checkCompletionApplication() {
         //$("html").shouldHave(text("Вы уже подавали заявку на Халву!"));
         $("html").shouldHave(text("Выберите способ получения Вашей карты Халва"));
-        //TODO Нужно подумать про проверку
+        //TODO Нужно подумать про проверку, так как результат отличается взависимости от региона.
     }
 }

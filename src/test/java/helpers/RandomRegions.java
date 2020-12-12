@@ -1,4 +1,4 @@
-package tests;
+package helpers;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -9,7 +9,6 @@ public enum RandomRegions {
     MOSCOW("Москва и Московская область"),
     SAINT_PETERSBURG("Санкт-Петербург и Ленинградская область"),
     NIZHNY_NOVGOROD("Нижегородская область"),
-    PERM_REGION("Пермский край"),
     TATARSTAN("Республика Татарстан");
 
     private final String name;
@@ -19,6 +18,7 @@ public enum RandomRegions {
     }
 
     public String getName() {
+
         return name;
     }
 

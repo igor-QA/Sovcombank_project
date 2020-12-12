@@ -1,7 +1,12 @@
-plugins {
-    id 'java'
-    id "io.qameta.allure" version "2.8.1"
+buildscript {
+    repositories {
+        jcenter()
+    }
 }
+plugins {
+    id 'java-library'
+    id 'application'
+    id 'io.qameta.allure' version '2.8.1'}
 
 group 'qa.guru'
 version '1.0-SNAPSHOT'
@@ -21,9 +26,7 @@ allure {
     }
 }
 
-test {
-    useJUnitPlatform()
-}
+
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -34,6 +37,7 @@ dependencies {
     compile("io.qameta.allure:allure-rest-assured:2.13.5")
     compile("io.qameta.allure:allure-selenide:2.13.6")
     testImplementation "org.aspectj:aspectjweaver:1.9.5"
+    compile'org.aeonbits.owner:owner:1.0.12'
 
     compile("io.rest-assured:rest-assured:4.3.1")
     compile("com.fasterxml.jackson.core:jackson-databind:2.11.2")
@@ -45,3 +49,11 @@ dependencies {
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
 
 }
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+}
+test {
+    useJUnitPlatform()
+}
+
