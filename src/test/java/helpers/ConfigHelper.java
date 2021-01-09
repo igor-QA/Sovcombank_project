@@ -18,6 +18,3 @@ public class ConfigHelper {
         return ConfigFactory.newInstance().create(WebConfig.class, System.getProperties());
     }
 }
-
-
-

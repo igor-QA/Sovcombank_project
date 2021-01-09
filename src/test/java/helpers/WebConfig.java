@@ -17,6 +17,3 @@ public interface WebConfig extends Config {
     @Key("video")
     String remoteVideo();
 }
-
-
-

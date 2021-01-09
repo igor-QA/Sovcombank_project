@@ -18,15 +18,13 @@ repositories {
 allure {
     autoconfigure = true // плагин все автоматически сконфигурирует
     aspectjweaver = true
-    version = '2.13.6'
+    version = '2.13.7'
 
 
     useJUnit5(){
         version = '2.13.6'
     }
 }
-
-
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -42,7 +40,7 @@ dependencies {
     compile("io.rest-assured:rest-assured:4.3.1")
     compile("com.fasterxml.jackson.core:jackson-databind:2.11.2")
 
-    compile("com.codeborne:selenide:5.13.1")
+    compile("com.codeborne:selenide:5.17.0")
     compile("org.junit.jupiter:junit-jupiter-api:5.7.0")
     compile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
     compile("org.junit.jupiter:junit-jupiter-params:5.7.0")

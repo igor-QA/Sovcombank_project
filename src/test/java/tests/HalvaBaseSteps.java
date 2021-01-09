@@ -24,7 +24,7 @@ public class HalvaBaseSteps extends TestBase {
 
     @Step("Проверить переход на страницу заказа")
     public void checkOrderPage() {
-        $("html").waitUntil(visible, 3000).shouldHave(text("Заказать карту"));
+        $("html").shouldHave(text("Заказать карту"));
     }
 
     @Step("Заказать карту Халва")
