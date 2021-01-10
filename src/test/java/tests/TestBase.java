@@ -44,6 +44,7 @@ public class TestBase {
         //Configuration.browser = "firefox";
 
     }
+
     @AfterEach
     @Step("Attachments")
     public void afterEach() {
@@ -54,5 +55,4 @@ public class TestBase {
 
         closeWebDriver();
     }
-
 }

@@ -49,9 +49,10 @@ dependencies {
 }
 
 tasks.withType(Test) {
-    systemProperties = System.properties
+    systemProperties = System.properties as Map<String, ?>
 }
 test {
+    systemProperty "chromeoptions.args","--disable-notifications" //увидомления выкл
     useJUnitPlatform()
 }
 
