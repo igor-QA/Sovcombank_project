@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.*;
@@ -10,6 +11,7 @@ import static io.qameta.allure.Allure.step;
 public class BusinessServicesTests extends TestBase {
 
     @Test
+    @Story("Пользовател должен успешно перейти по вкалдкам Вклады")
     @DisplayName("Проверить раздел Тарифы МСБ - Вклад Успех")
     void  successfulOpenTariffPage(){
         step("Открыть главную страницу", () ->
@@ -48,7 +50,7 @@ public class BusinessServicesTests extends TestBase {
                 $(byText("Доходный")).click());
 
         step("Проверить успешность открытия страницы Вклада", () ->
-                $("h1.Typography").shouldHave(text("Успех"))); //ДОХОДНЫЙ
+                $("h1.Typography").shouldHave(text("ДОХОДНЫЙ")));
 
     }
 }
