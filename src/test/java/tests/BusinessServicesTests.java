@@ -2,6 +2,7 @@ package tests;
 
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class BusinessServicesTests extends TestBase {
-
+    @Tag("Skipped")
     @Test
     @Story("Пользовател должен успешно перейти по вкалдкам Вклады")
     @DisplayName("Проверить раздел Тарифы МСБ - Вклад Успех")
@@ -31,7 +32,7 @@ public class BusinessServicesTests extends TestBase {
         step("Проверить успешность открытия страницы Вклада", () ->
                 $("h2.Typography").shouldHave(text("Условия")));
     }
-
+    @Tag("Skipped")
     @Test
     @DisplayName("Проверить раздел Тарифа МСБ - Вклад Доходный")
     void unsuccessfulOpenTariffPage(){
