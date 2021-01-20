@@ -24,5 +24,4 @@ public class HalvaOrderingTests extends TestBase {
         steps.fillClientForm();
         steps.checkCompletionApplication();
     }
-
 }

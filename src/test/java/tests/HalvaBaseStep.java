@@ -1,6 +1,8 @@
 package tests;
 
 import io.qameta.allure.Step;
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
@@ -24,15 +26,14 @@ public class HalvaBaseStep extends TestBase {
 
     @Step("Проверить переход на страницу заказа")
     public void checkOrderPage() {
-        $("html").shouldHave(text("Заказать карту"));
+        $("html").shouldHave(text("Заказать карту"),Duration.ofSeconds(4000));
     }
 
     @Step("Заказать карту Халва")
     public void orderCard() {
-        $(byText("Заказать карту")).click();
-        //$("h1.jss63.headline").shouldHave(text("Получи Халву сейчас!"));
+        $("h1.jss62.headline").scrollIntoView(true);
+        $("h1.jss62.headline").shouldHave(text("Получи Халву сейчас!"));
         //$("div.jss74").click();
-        $("h1.jss63.headline").scrollIntoView(true); //2-ой вариант=сразу скролл вниз.
     }
 
     @Step("Ввод данных потенциального клиента")
@@ -41,11 +42,10 @@ public class HalvaBaseStep extends TestBase {
         $(byName("birthDate")).setValue(birthDate + year);
         $(byName("phone")).setValue(phoneNumber);
         $(byName("region")).click();
-        $$(byText(region)).find(visible).click();
+        $$(byText(region)).findBy(visible).click();
         $(byName("localityAddress")).setValue("А");
         $("#react-autowhatever-1--item-0").click();
         $("button.formBtn > span:nth-child(1)").click();
-
     }
 
     @Step("Проверить завершение процесса заявки на карту Халва")
