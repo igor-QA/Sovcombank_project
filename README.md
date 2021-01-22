@@ -19,6 +19,7 @@
 * Selenide
 * Jenkins
 * Selenoid
+* Telegram Notifications. 
 
 In the project I've worked with:
 
@@ -28,7 +29,6 @@ In the project I've worked with:
 * Owner properties
 * Jenkins & Selenoid/SauceLabs in docker
 * Design Patterns
-* Project created on the base of the two methodologies as Page Object and Page Factory.
 
 Testing The main goal of project was functional and GUI testing which verifies valid work of the tested registration form, website's elements and buttons. 
 
