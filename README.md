@@ -30,5 +30,5 @@ In the project I've worked with:
 * Design Patterns
 * Project created on the base of the two methodologies as Page Object and Page Factory.
 
-Testing The main goal of project was functional and GUI testing which verifies valid work of the tested registration form, website's elements, buttons and referensies
+Testing The main goal of project was functional and GUI testing which verifies valid work of the tested registration form, website's elements and buttons. 
 
