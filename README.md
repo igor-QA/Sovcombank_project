@@ -10,3 +10,25 @@
 ![](https://fs.getcourse.ru/fileservice/file/download/a/159627/sc/135/h/54c3bb650bb68d170c809e5c8b1f1620.png)
 ![](https://fs.getcourse.ru/fileservice/file/download/a/159627/sc/471/h/af8dac704b92a8bcdc35b6bad6e68a0b.png)
 
+### Project is implemented such as technologies and libraries as:
+
+* Java
+* Gradle
+* JUnit5
+* Allure Reports (logs, screenshot, video)
+* Selenide
+* Jenkins
+* Selenoid
+* Telegram Notifications. 
+
+In the project I've worked with:
+
+* Webdriver (selenuim)
+* Remote webdriver (selenoid)
+* XPath and CSS locators
+* Owner properties
+* Jenkins & Selenoid/SauceLabs in docker
+* Design Patterns
+
+Testing The main goal of project was functional and GUI testing which verifies valid work of the tested registration form, website's elements and buttons. 
+
