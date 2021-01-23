@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 
 public class BusinessServicesTests extends TestBase {
 
-    @Disabled
+    @Disabled("Изменения в UI сайта")
     @Test
     @Story("Пользовател должен успешно перейти по вкалдкам Вклады")
     @DisplayName("Проверить раздел Тарифы МСБ - Вклад Успех")
@@ -33,7 +33,7 @@ public class BusinessServicesTests extends TestBase {
         step("Проверить успешность открытия страницы Вклада", () ->
                 $("h2.Typography").shouldHave(text("Условия")));
     }
-    @Disabled
+    @Disabled("Изменения в UI сайта")
     @Test
     @DisplayName("Проверить раздел Тарифа МСБ - Вклад Доходный")
     void unsuccessfulOpenTariffPage(){

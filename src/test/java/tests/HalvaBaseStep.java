@@ -29,14 +29,12 @@ public class HalvaBaseStep extends TestBase {
         $("html").shouldHave(text("Заказать карту"),Duration.ofSeconds(4000));
     }
 
-    @Step("Заказать карту Халва")
+    @Step("Проверить переход на форму заказа карты Халва")
     public void orderCard() {
-        $("h1.jss62.headline").scrollIntoView(true);
-        $("h1.jss62.headline").shouldHave(text("Получи Халву сейчас!"));
-        //$("div.jss74").click();
+        $("h1.jss62.headline").scrollIntoView(true).shouldHave(text("Получи Халву сейчас!"));
     }
 
-    @Step("Ввод данных потенциального клиента")
+    @Step("Ввод данных потенциального клиента и заказ карты Халва")
     public void fillClientForm() {
         $(byName("fio")).setValue(firstName + " " + lastName);
         $(byName("birthDate")).setValue(birthDate + year);

@@ -37,14 +37,12 @@ public class TestBase {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-
         Configuration.remote = ConfigHelper.getURL();
         Configuration.browserCapabilities = capabilities;
         Configuration.startMaximized = true;
         //Configuration.browser = "firefox";
 
-    }
-
+}
     @AfterEach
     @Step("Attachments")
     public void afterEach() {

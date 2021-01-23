@@ -14,6 +14,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+ext {
+    junitVersion = "5.7.0"
+}
 
 allure {
     autoconfigure = true // плагин все автоматически сконфигурирует
@@ -31,20 +34,20 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compile("io.qameta.allure:allure-java-commons:2.13.7")
-    compile("io.qameta.allure:allure-rest-assured:2.13.7")
-    compile("io.qameta.allure:allure-selenide:2.13.7")
-    compile"org.aeonbits.owner:owner:1.0.12"
-
-    compile("io.rest-assured:rest-assured:4.3.1")
-    compile("com.fasterxml.jackson.core:jackson-databind:2.11.2")
-
-    compile("com.codeborne:selenide:5.17.0")
-    compile("org.junit.jupiter:junit-jupiter-api:5.7.0")
-    compile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
-    compile("org.junit.jupiter:junit-jupiter-params:5.7.0")
-    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation "io.qameta.allure:allure-java-commons:2.13.7"
+    testImplementation "io.qameta.allure:allure-rest-assured:2.13.7"
+    testImplementation "io.qameta.allure:allure-selenide:2.13.7"
+    testImplementation "org.aeonbits.owner:owner:1.0.12"
     testImplementation "org.aspectj:aspectjweaver:1.9.5"
+
+    testImplementation "io.rest-assured:rest-assured:4.3.1"
+    testImplementation "com.fasterxml.jackson.core:jackson-databind:2.11.2"
+
+    testImplementation "com.codeborne:selenide:5.17.0"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+    testImplementation "com.github.javafaker:javafaker:1.0.2"
 
 }
 
