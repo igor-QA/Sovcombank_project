@@ -16,12 +16,11 @@ public class HalvaOrderingTests extends TestBase {
     @Owner("Igor Pavlov")
 
     public void createNewApplicationCard() {
-        HalvaBaseStep steps = new HalvaBaseStep();
-        steps.openMainPage();
-        steps.goToHalvaCardPage();
-        steps.checkOrderPage();
-        steps.orderCard();
-        steps.fillClientForm();
-        steps.checkCompletionApplication();
+        halva.openMainPage();
+        halva.goToHalvaCardPage();
+        halva.checkOrderPage();
+        halva.orderCard();
+        halva.fillClientForm();
+        halva.checkCompletionApplication();
     }
 }

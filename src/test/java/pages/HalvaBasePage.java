@@ -1,6 +1,8 @@
-package tests;
+package pages;
 
 import io.qameta.allure.Step;
+import tests.TestBase;
+
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
@@ -10,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class HalvaBaseStep extends TestBase {
+public class HalvaBasePage extends TestBase {
 
     @Step("Открыть главную страницу СовкомБанк")
     public void openMainPage() {
@@ -43,7 +45,7 @@ public class HalvaBaseStep extends TestBase {
         $$(byText(region)).findBy(visible).click();
         $(byName("localityAddress")).setValue("А");
         $("#react-autowhatever-1--item-0").click();
-        $("button.formBtn > span:nth-child(1)").click();
+        $("button.formBtn span:nth-child(1)").click();
     }
 
     @Step("Проверить завершение процесса заявки на карту Халва")

@@ -9,6 +9,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.HalvaBasePage;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +20,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.AttachmentsHelper.*;
 
 public class TestBase {
+    HalvaBasePage halva = new HalvaBasePage();
 
     Faker faker = new Faker(new Locale("ru"));
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.");
