@@ -30,5 +30,5 @@ In the project I've worked with:
 * Jenkins & Selenoid/SauceLabs in docker
 * Design Patterns
 
-Testing The main goal of project was functional and GUI testing which verifies valid work of the tested registration form, website's elements and buttons. 
+Testing The main goal of project was functional and GUI testing which verifies valid work of the tested application form, website's elements and buttons. 
 
